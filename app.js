@@ -3,14 +3,18 @@ const mongoose=require('mongoose')
 const cors=require('cors')
 const exphbs = require('express-handlebars')
 const bodyParser=require('body-parser')
-require('dotenv').config()
+//require('dotenv').config()
 const cloudinary = require('cloudinary')
 const Blog =require('./models/Blog')
+const ENV=require('dotenv');
+
+ENV.config();
 
 const app= express();
 
 require('./config/cloudinary')
 
+console.log(process.env.CLOUD_NAME)
 
 mongoose.connect("mongodb://localhost/cloud",{useNewUrlParser:true})
 
